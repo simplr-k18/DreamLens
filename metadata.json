@@ -1,0 +1,7 @@
+{
+  "name": "DreamLens: Find Your Spark",
+  "description": "A guided aspiration platform for parents and children to transform a photo into a meaningful conversation about a child's unique calling, virtues, and future possibilities through a fun quiz and AI-generated storybook portraits.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
