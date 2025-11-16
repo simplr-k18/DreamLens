@@ -1,469 +1,146 @@
-# The Art of the Product Document: A Guide to Clarity and Purposeful Action
+# DreamLens: The Art of Seeing the Spark
 
-This guide is not a template. It is a set of first principles for crafting a product document that serves its true purpose: to bring clarity from chaos, to align a team around a shared mission, and to provide a clear path for dedicated action.
+This document is not just a technical README. It is a set of first principles for an application designed to serve a profound purpose: to help parents and children see the invisible, to bring clarity to a child's innate potential, and to align a family around a shared journey of discovery.
 
-A product document is an act of creation, born from deep thought and empathy. Its quality is not measured by its flashiness, but by its substance. It avoids the noise of jargon and the illusion of complexity, striving instead for a state of simple, profound clarity. It is honest about challenges, yet confident in its path. It is a tool for focused work, detached from the ego of its author, and dedicated entirely to the service of the user and the mission.
+DreamLens is an act of creation, born from empathy for the parent's hope and the child's boundless imagination. Its quality is measured not by its features, but by the depth of conversation it inspires. It avoids the noise of fleeting trends, striving instead for a state of simple, profound connection. It is honest about the challenge of parenting, yet confident in the power of a child's inner spark.
 
-Think of this document not as a destination, but as a map. It is the result of your focused effort to understand the truth of the problem you are solving. By mastering the principles within—harmony in design, purpose in structure, and truth in language—you create more than a document. You create the foundation for a product built with intention, wisdom, and unwavering focus.
+Think of this application not as a destination, but as a map. It is the result of a focused effort to understand the truth of a child's unique calling. By mastering the principles within—harmony in design, purpose in user flow, and truth in its generated stories—we create more than an app. We create a tool for nurturing potential, built with intention, wisdom, and unwavering focus on the future.
 
 ---
 
-## The Art of Writing Your PM Product Doc: Complete Formatting & Strategy Guide
+## The DreamLens Product Guide: Complete Architecture & Strategy
 
 ### Part 1: Visual Design & Typography
 
-#### Font Selection (Use These Combinations)
+The visual identity of DreamLens is crafted to feel warm, magical, and trustworthy—like a classic storybook brought to life.
 
-**For Web/Digital (Google Docs, Notion, Figma):**
+#### Font Selection
 
-- **Headings:** Inter, Poppins, or SF Pro (clean, modern, friendly)
-- **Body Text:** Inter, Roboto, or Oxygen (highly readable, neutral)
-- **Avoid:** Georgia, Times New Roman (feels dated); Comic Sans, Papyrus (unprofessional)
+-   **Headings (`font-serif`):** **Lora**. A serif font that evokes a sense of timeless wisdom and storytelling. It gives weight and importance to key moments, like the reveal of a virtue.
+-   **Body Text (`font-sans`):** **Nunito Sans**. A clean, rounded sans-serif that is highly readable, friendly, and modern. It ensures that all descriptions and stories are accessible and easy for both parents and children to read.
 
-*Why these? They signal modern tech thinking—the first thing hiring managers notice before they read a word.*
+*Why this combination? It balances the classic with the modern, creating an experience that feels both profound and delightfully simple.*
 
 #### Typography Hierarchy & Sizing
 
-- **Title (Product Name):** 32-40px, Bold, Brand color
-- **Subtitle (One-liner):** 18-22px, Medium weight, Dark gray (#2C3E50)
-- **Section Headings:** 24-28px, Bold, Slightly lighter than title
-- **Subsection Headings:** 18-20px, Semi-bold, Dark gray
-- **Body Text:** 14-16px, Regular weight, Charcoal (#333333)
-- **Metadata (dates, links):** 12-13px, Regular, Muted gray (#666666)
-- **Line spacing:** 1.6x for body text (makes dense paragraphs breathable).
+-   **Title (e.g., "DreamLens", "See the spark"):** 5xl-6xl, Bold/Extra-bold, `text-warm-gold` or `text-forest-green`.
+-   **Section Headings (e.g., "Let's create the dream..."):** 3xl-4xl, Serif, Bold, `text-forest-green`.
+-   **Body Text:** lg, Sans-serif, Regular, `text-stone` or `text-forest-green`.
+-   **Buttons & UI Elements:** Sans-serif, Bold, various colors.
+-   **Line spacing:** Standard Tailwind classes are used to ensure breathable, readable text blocks.
 
-#### Color Palette (Keep It Simple)
+#### Color Palette (The Magic of Nature)
 
-Pick one brand color and stick with it throughout:
+The color palette is inspired by a serene, magical forest at dusk.
 
-- **Primary Color:** One accent (e.g., `#6366F1` for indigo, `#EC4899` for pink, `#3B82F6` for blue)
-- **Neutrals:** Black/dark gray (`#1F2937`), medium gray (`#6B7280`), light gray (`#F3F4F6`)
-- **Accents for data:** Soft greens for positive, soft reds for challenges (but muted—avoid neon)
+-   **Primary:** `forest-green` (#2d4221). Represents growth, nature, and stability.
+-   **Accent:** `warm-gold` (#d4af37). Signifies magic, value, and the "spark" itself. Used for key call-to-actions and highlights.
+-   **Background:** `soft-cream` (#f5f5f0). A gentle, calming canvas that is easy on the eyes.
+-   **Neutrals:** `stone` (#a9a9a9). Used for secondary text to create a soft hierarchy.
+-   **Supporting Accents:** `sky-blue` (#a4c6de), `terracotta` (#c87560) for action buttons, adding a touch of playfulness.
 
-**Rule:** Never use more than 3 colors. Simplicity reads as sophistication.
+**Rule:** The palette is intentionally limited to create a cohesive, non-distracting, and premium feel.
 
-### Part 2: Document Structure & Layout
+### Part 2: App Structure & Layout
 
-#### Document Dimensions & Margins
+#### Component-Based Architecture
 
-**If using Google Docs:**
+The application is built as a single-page application using React, with a clear, linear state machine managed in `App.tsx`. This guides the user through a deliberate, story-like journey.
 
-- **Margins:** 1 inch all sides (or 0.8" if you want slightly more breathing room)
-- **Page width:** Standard (8.5" x 11")
-- **Line width:** Never exceed 80 characters per line (harder to read if too wide)
+-   `IntroScreen`: Sets the magical tone with a subtle animation.
+-   `WelcomeScreen`: Onboards the user and captures the child's name for personalization.
+-   `SparkQuiz`: The interactive core that determines the foundational virtue.
+-   `VirtueReveal`: The emotional payoff moment, celebrating the child's primary spark.
+-   `CallingSelection`: Connects the abstract virtue to tangible, inspiring future paths.
+-   `ImageGeneration`: The technical and magical core where user input (a photo) is transformed via the Gemini API.
+-   `ActionStep`: Presents the generated story and artwork, and provides tools for sharing and preservation.
+-   `TimeCapsule` & `TimeCapsuleModal`: The gallery of past dreams, encouraging repeat engagement and reflection over time.
 
-**If using Notion/Web:**
+#### Layout Principles (The Focused Canvas)
 
-- **Max content width:** 800-900px (prevents text from stretching across wide screens)
-- **Generous side margins:** 40-60px padding on left/right
+-   **Max content width:** `max-w-2xl`. All content is centered within a generous container, eliminating distractions and focusing the user's attention on the current step.
+-   **Responsive Design:** Built mobile-first using Tailwind CSS, ensuring the experience is seamless on any device.
+-   **Generous Spacing:** Ample whitespace is used between elements to create a calm, uncluttered, and premium feel.
 
-**If exporting to PDF for hiring managers/YC:**
+### Part 3: Feature-by-Feature Strategy
 
-- Export with 1-1.5" margins, ensure fonts embed properly
+#### The `WelcomeScreen` (The Invitation)
 
-#### Spacing (The Invisible Grid)
+This screen acts as the cover of our storybook.
 
-This is where elegance lives. Bad spacing = cluttered and amateur.
+-   **Layout:** A strong, centered typographic statement establishes the app's core promise: "Don't just see the future. See the spark."
+-   **Function:** A single input field for the child's name immediately establishes a personalized journey.
+-   *Skill Shown: Clear value proposition, immediate user engagement.*
 
-- **Between sections:** 40-60px (real breathing room)
-- **Between subsection & body:** 20px
-- **Between paragraphs:** 16px
-- **Between bullets/items:** 12px
-- **Around images:** 30px above, 30px below (equals section spacing)
+#### The `SparkQuiz` (The Discovery)
 
-### Part 3: Section-by-Section Formatting Strategy
+-   **Format:** A simple, two-choice visual quiz. Each option is tied to one of the four core virtues (Compassion, Creativity, Courage, Curiosity).
+-   **Visuals:** Placeholder images are used to make the choices feel tangible and fun for a child.
+-   **UX:** A progress bar provides a sense of momentum. Smooth transitions between questions keep the user engaged.
+-   *Skill Shown: User-centric design (simple choices), clear feedback (progress bar).*
 
-#### Cover/Title Page
+#### The `ImageGeneration` Screen (The Magic)
 
-**Layout:**
+This is the heart of the DreamLens experience, where we combine user data with AI to create a unique artifact.
 
-- **Top 30% of page:** White space (let the eye rest)
-- **Product name:** 36-40px, bold, your brand color, centered
-- **One-liner tagline:** 18px, medium weight, dark gray, centered, 20px below title
-- **Your name + date:** 12px, muted gray, centered, at bottom
+-   **Layout:** A clear file upload area with a preview provides confidence. A simple style selector (`Artistic`, `Photorealistic`, `Comic Book`) offers creative control.
+-   **Technical Strategy:**
+    1.  The user uploads a photo of their child.
+    2.  Upon clicking "Weave the Dream", two parallel asynchronous calls are made to the Gemini API (`geminiService.ts`):
+        -   `generateStorybookImage`: An image-to-image request using `gemini-2.5-flash-image`. The prompt is carefully engineered to preserve the child's likeness while transforming them into their chosen "calling."
+        -   `generateCallingDetails`: A text-to-json request using `gemini-2.5-pro`. The prompt instructs the model to generate a structured JSON object containing a story, a role model, a skill path, and a first step.
+    3.  A loading state with encouraging, thematic messages (`"Mixing paints and magic..."`) manages user expectation during the API calls.
+-   *Skill Shown: UI/UX sensibility (clear inputs), technical architecture (parallel API calls for efficiency), thoughtful user feedback (loading messages).*
 
-**Visual:** Optional: subtle background gradient (very faint—like a 5% opacity color wash) or a simple geometric shape (circle, line) in your brand color positioned in corner. Don't overcomplicate.
+#### The `ActionStep` & `TimeCapsule` (The Memory)
 
-*Skill shown: Judgment and restraint—you're not over-designing.*
+This is where the digital experience translates into real-world connection and memory.
 
-#### Executive Summary Section
-
-**Format:**
-
-- **Heading:** "Executive Summary" (24px, bold, brand color)
-- **Three subsections presented visually:**
-    - Problem (16px subheading, brand color)
-    - Solution (16px subheading, brand color)
-    - Impact (16px subheading, brand color)
-
-Each should be 2-3 sentences max. Consider laying these out as three columns if using a tool that supports it (Notion, Figma, Canva), or stack them vertically with visual dividers (subtle lines or background boxes).
-
-**Color coding:** Optional—each box gets a super light tint of your brand color (like 10% opacity background).
-
-*Skill shown: Data synthesis, clarity, hierarchy thinking.*
-
-#### Problem Section
-
-**Visual layout:**
-
-- **[Heading]** "The Problem"
-- **[1-2 sentence intro - 16px]**
-- **[Small visual: icon or simple illustration of the pain point]**
-- **[Body paragraph explaining context - 14-16px, 1.6 line spacing]**
-- **[Data point callout - use visual emphasis]**
-    - └─ Example: "Freelancers spend 7+ hours/month on expense tracking"
-       (Use a highlighted box or left border accent in brand color)
-- **[Second supporting insight with data]**
-- **[Optional: Small chart/visual showing the gap between current state vs desired]**
-
-**Images:** Place a simple, clear image or icon (not a screenshot yet—something conceptual) to the right of the problem intro, about 200-300px wide. Shows design sensibility early.
-
-*Skill shown: Empathy, research rigor, ability to quantify problems (data skills).*
-
-#### Solution Section
-
-**Visual layout:**
-
-- **[Heading]** "How It Works"
-- **[1-2 sentence intro explaining your approach]**
-- **[THIS IS WHERE YOUR DESIGN SKETCHES GO]**
-
-**Layout option A: Three cards in a row (mobile mockup, dashboard, integration)**
-- Each card: 250-300px wide, subtle shadow, rounded corners (8-12px border radius)
-- Card heading: 16px bold, brand color
-- Brief description under card: 13px, 1.5 line spacing
-- Caption: "Step 1: Capture", "Step 2: Categorize", etc.
-
-**Layout option B: Timeline flow**
-- Left to right or top to bottom vertical flow
-- Each step connected by subtle arrow or line (your brand color, 2px stroke)
-- Step illustration/mockup on one side
-- Text description on other side
-- Alternating left-right creates visual rhythm
-
-**Important:** Your AI-generated UI sketches should look polished. If rough, spend 30 minutes in Figma/Canva cleaning them up. A blurry sketch reads as rushed.
-
-**Captions under all images:** "Fig. 1: Receipt capture flow" (small, italicized, muted gray)
-
-*Skill shown: UI/UX sensibility, ability to visualize user flows, design thinking.*
-
-#### Why Now Section
-
-**Visual layout:**
-
-- **[Heading]** "Why Now?"
-- **[Intro sentence setting context]**
-- **[3 reasons, each presented as a card or column]**
-    - Reason 1: [Icon/small visual] [Heading] [1-2 sentence explanation] [Data point if possible]
-    - Reason 2: [Icon/small visual] [Heading] [1-2 sentence explanation] [Data point if possible]
-    - Reason 3: [Icon/small visual] [Heading] [1-2 sentence explanation] [Data point if possible]
-- Optional: Small chart showing growth trend (e.g., freelancer population growth, AI adoption curve, regulatory changes)
-
-**Chart best practices:**
-
-- Use a simple line or bar chart (avoid 3D, avoid rainbow colors)
-- One color for the trend line or bars (your brand color)
-- Clean axis labels and gridlines (light gray, 2px)
-- Embedded data source: "Source: Bureau of Labor Statistics, 2024"
-
-*Skill shown: Strategic thinking, market awareness, timing judgment.*
-
-#### Success Metrics / Key Results Section
-
-**Visual layout:**
-
-- **[Heading]** "How We'll Measure Success"
-- **[Intro: "We succeed when..."]**
-- **[Three columns or cards, each highlighting one KR]**
-```
-┌─────────────────┬─────────────────┬─────────────────┐
-│   Engagement    │   Retention     │ User Impact     │
-│   ───────────   │   ───────────   │  ───────────    │
-│   80%           │   60%           │ 6x time saved   │
-│   weekly active │   3-month       │ (7h → 1h)       │
-│   users         │   retention     │                 │
-│                 │                 │                 │
-│   Why: Habit    │   Why: Product  │ Why: Core value │
-│   = real value  │   market fit    │ delivered       │
-└─────────────────┴─────────────────┴─────────────────┘
-```
-- **[Subsection: Secondary Metrics]**
-    - Listed in 2-column format or as a simple bulleted list
-    - Each metric with brief rationale (1 sentence)
-
-**Visual treatment:**
-
-- Main metrics in large, prominent cards with big numbers (48-56px)
-- Metric name below the number (16px, bold)
-- Supporting text: 13px, muted gray
-
-*Skill shown: Data literacy, outcome orientation, understanding of leading vs. lagging indicators.*
-
-#### Go-to-Market / Roadmap Section
-
-**Visual layout:**
-
-- **[Heading]** "Go-to-Market Strategy"
-- **[Timeline visualization]**
-    - **Month 1-2: PHASE 1 – VALIDATION**
-        - ├─ Icon: Microscope or Users
-        - ├─ What: Closed beta with 50 users
-        - ├─ Outcome: Product-market fit signals
-        - └─ Success metric: 85%+ would recommend
-    - **Month 3-4: PHASE 2 – LIMITED LAUNCH**
-        - ├─ Icon: Rocket or Growth
-        - ├─ What: 5,000 users via Product Hunt
-        - ├─ Channels: Twitter, communities
-        - └─ Success metric: 10k+ waitlist
-    - **Month 5+: PHASE 3 – GROWTH**
-        - ├─ Icon: Scale or Graph
-        - ├─ What: Paid acquisition + partnerships
-        - ├─ Channels: FB/IG ads, accounting platforms
-        - └─ Success metric: 50k MAU
-- **[Below timeline: Revenue model in a simple box]**
-    - Freemium: Free (10 receipts/mo) | Pro ($9.99/mo unlimited)
-
-*Skill shown: Strategic planning, phased thinking, revenue consciousness.*
-
-#### Design Philosophy / Visual Design Rationale Section
-
-**Format:**
-
-- **[Heading]** "Design & User Experience"
-- **[2-3 paragraph explanation of your design decisions - WHY you made them]**
-
-**Example:**
-> "We designed SmartReceipt around one principle: reduce cognitive load. Every interaction is one tap. The interface uses high contrast between action buttons and background to guide users naturally. Color coding (green for confirmed, yellow for review) builds intuition without needing tooltips."
-
-- **[3-4 key design mockups/screenshots arranged in a grid or carousel]**
-    - Each with a caption explaining the design choice
-    - Annotations on images highlighting key UX decisions (use simple arrows/labels)
-- **[Optional: Design system reference]**
-    - Button styles, color codes, spacing rules (small footnote or appendix)
-
-*Skill shown: UX thinking, attention to detail, ability to articulate why design matters.*
-
-#### Risk & Mitigation Section
-
-**Visual layout:**
-
-- **[Heading]** "Risks & How We'll Handle Them"
-- **[3-4 key risks presented honestly - this builds credibility]**
-    - **Risk 1: [Icon: warning or challenge] [Bold risk name]**
-        - └─ Description (1 sentence, real, not sugar-coated)
-        - └─ Mitigation (1-2 sentences, specific action)
-        - └─ Likelihood: Medium | Impact: High
-    - **Risk 2: ...**
-    - **Risk 3: ...**
-
-**Table format (optional):**
-
-| Risk                              | Impact | Mitigation                               | Owner              |
-| --------------------------------- | ------ | ---------------------------------------- | ------------------ |
-| OCR fails on handwritten receipts | High   | Implement fallback photo upload + manual entry | Engineering        |
-| Market adoption slower than forecast | Medium | Pivot to SMB/team accounting             | Marketing/Product  |
-
-*Skill shown: Mature thinking, risk awareness, not naive. Leaders respect this.*
+-   **Visual Layout:** The generated image is given hero status. The AI-generated story and details are presented in clean, digestible "InfoCards."
+-   **Go-to-Market Strategy:** The action buttons are the app's primary growth engine.
+    -   `Save to Spark Time-Capsule`: Encourages long-term retention and repeat usage.
+    -   `Share`, `Download`, `Print`: Enable organic, word-of-mouth marketing by giving users tangible artifacts to share with family and friends.
+-   **Success Metrics:**
+    -   **Engagement:** Percentage of users who complete the flow from quiz to action step.
+    -   **Retention:** Number of entries saved to the Time Capsule per user.
+    -   **Virality:** Number of shares or downloads initiated from the Action Step.
+-   *Skill Shown: Outcome-oriented design, strategic planning (built-in growth loops), data literacy.*
 
 ### Part 4: Visual Assets Strategy
 
-#### Where Images Go & Why
+-   **Quiz & Calling Images:** Currently using `picsum.photos` as placeholders. A V2 would involve creating a consistent, branded set of illustrations.
+-   **The Generated Portrait:** This is the most critical visual asset. The prompting in `geminiService.ts` is highly specific, demanding that the AI **"crucially, preserve the child's unique facial features and likeness"** to create a deeply personal and emotionally resonant image.
+-   **Icons:** Simple, universally understood icons (`💖`, `🎨`, `🦁`, `🌍`) are used to represent the virtues, making them instantly recognizable.
 
-1.  **Problem Section:** Conceptual illustration (icon or simple graphic) showing the pain point. Example: stressed person surrounded by receipts. Size: 200-250px, positioned to the right of text.
-2.  **Solution Section:** 3-4 polished UI mockups showing the product flow. These are your most important visuals. Invest time here. Size: 250-350px each.
-3.  **Why Now Section:** Optional small chart (freelancer growth trend). Size: 300-400px.
-4.  **Metrics Section:** Visual representation of metrics (icon-based cards work well). No screenshot needed—just well-designed cards with numbers.
-5.  **Go-to-Market Section:** Timeline graphic. Size: 600-800px, spans full width.
+### Part 5: Tone & Writing Style
 
-#### Image Quality Standards
+-   **Conversational & Encouraging:** The copy is warm, positive, and speaks directly to the parent and child (e.g., "Let's create the dream for your...").
+-   **Magical & Inspiring:** The language used in stories and descriptions aims to spark imagination and wonder.
+-   **Simple & Clear:** All instructions are straightforward, ensuring the app is effortless to use.
 
-- All screenshots/mockups: Minimum 1080px width when embedded, crisp and clear
-- Remove clutter from screenshots (hide notifications, clean desktop)
-- If using AI-generated designs: Upscale to high resolution, ensure text is legible
-- Consistent visual style across all images (same colors, same design system)
-- Add subtle drop shadows (4-8px blur, 15% opacity) to mockups—feels polished
-- Border radius on images: 8-12px (softer than sharp corners)
+### Part 6: Tools & Technology Stack
 
-#### Do's & Don'ts for Images
+-   **Frontend:** React, TypeScript, Vite
+-   **Styling:** Tailwind CSS for rapid, responsive, and utility-first styling.
+-   **AI Model (Image):** Google Gemini (`gemini-2.5-flash-image`) for its powerful image editing and generation capabilities.
+-   **AI Model (Text):** Google Gemini (`gemini-2.5-pro`) for its structured JSON output and strong reasoning capabilities.
+-   **State Management:** React Hooks (`useState`) for simple, local component state.
 
-✅ **Do:**
+### Part 7: Roadmap & Future Possibilities
 
-- Keep images focused (one idea per image)
-- Use your brand color as accent in mockups
-- Add subtle captions below each image
-- Ensure mockups match your actual design language
-
-❌ **Don't:**
-
-- Use generic stock photos (they cheapen the doc)
-- Mix design styles (don't go from clean UI mockups to cartoonish illustrations)
-- Embed screenshots at low resolution
-- Clutter images with too much annotation
-
-### Part 5: Tone & Writing Style (Showcasing PM Skills Through Words)
-
-#### Language That Impresses Without Jargon
-
-| ❌ Avoid                                            | ✅ Use Instead                                            |
-| --------------------------------------------------- | --------------------------------------------------------- |
-| "Leverage synergies to optimize stakeholder engagement" | "Make it easy for teams to work together"                 |
-| "Disruptive paradigm shift in the vertically integrated space" | "A simpler way to do X"                                   |
-| "Utilize best-in-class methodologies"               | "We learned from what works"                              |
-| "Maximize customer lifetime value metrics"          | "Keep users coming back because they find real value"     |
-
-#### Sentence Structure That Demonstrates PM Thinking
-
-**Pattern 1: User Need First**
-- ❌ "We built a feature that does X"
-- ✅ "Users need to do X, but it takes 30 minutes. We reduce that to 30 seconds."
-
-**Pattern 2: Problem → Solution → Outcome**
-- ❌ "Our product is an AI-powered receipt scanner"
-- ✅ "Freelancers waste 7 hours monthly on expense tracking. We automate it in one tap. They save 6 hours and never miss a deduction."
-
-**Pattern 3: Data + Empathy**
-- ❌ "75% of users have pain points with manual entry"
-- ✅ "When we talked to freelancers, we heard the same story: receipts pile up, they guess at categories, and money gets left on the table. It happens to 3 in 4 of them."
-
-#### Tone Guidelines
-
-- Be conversational, not robotic. Use "you" and "we." "When you snap a photo, we instantly categorize it."
-- Be confident but humble. Show you've thought through this, but acknowledge what you don't know yet.
-- Use active voice. "We measure success by tracking weekly active users" (not "Success metrics are tracked by our system").
-- Lead with outcomes. Not features, outcomes. Not "AI-powered categorization," but "never miscategorize an expense again."
-
-### Part 6: Tools & Software
-
-#### Recommended Platforms
-
-**Best Choice for Hiring Managers/YC: Google Docs**
-- Clean, professional, no distractions
-- Hiring managers can comment and collaborate easily
-- Exports to PDF beautifully
-- Free and accessible to everyone
-
-**Alternative (More Designed): Notion**
-- More visual control and layout flexibility
-- Can embed images, charts, videos seamlessly
-- Looks more "designed"—shows attention to detail
-- Shareable link (better for broader audience)
-
-**For Maximum Visual Control: Figma**
-- Full design control, pixel-perfect layouts
-- Can prototype the product experience within the doc
-- Feels premium but takes more time
-- Embed as read-only link
-
-#### What to Avoid
-- PowerPoint or Keynote (feels like a presentation, not a thoughtful doc)
-- Overusing templates (they look generic)
-- Hand-written or scanned pages (unless specifically stylistic)
-
-### Part 7: The Complete Document Checklist
-
-#### Structure Checklist
-
-- Cover/Title page (clean, one visual, your name)
-- Executive Summary (problem, solution, impact in 3 tight sections)
-- Problem (with data, empathy, 1 visual)
-- Solution (with 3-4 UI mockups or flow diagrams)
-- Why Now (3 reasons, optional chart)
-- Success Metrics (3-4 KRs with numbers, secondary metrics)
-- Go-to-Market (phased timeline, channels, revenue model)
-- Design Philosophy (design choices explained, 3-4 mockups)
-- Risks & Mitigation (3-4 honest risks with solutions)
-- Next Steps (what you're doing tomorrow)
-
-#### Visual Checklist
-
-- Consistent font choices (max 2 fonts)
-- Consistent color palette (max 3 colors)
-- Proper spacing between sections (40-60px)
-- All images high resolution and professionally treated
-- Captions under all images
-- Consistent icon/visual style
-- Page breaks feel natural (no awkward orphans)
-
-#### Tone/Content Checklist
-
-- Opening problem resonates with empathy
-- Data points are cited or sourced
-- Solution is framed around user needs, not just features
-- Metrics are specific and measurable
-- Honest about risks (not overly polished)
-- No jargon that doesn't add value
-- Writing is conversational and clear
-- Hiring managers would understand this with zero prior knowledge
-
-#### Skills Demonstration Checklist
-
-- **PM Skills:** Clear problem definition, user-centric thinking, roadmap
-- **Strategy Skills:** Market timing, go-to-market approach, competitive thinking
-- **UI/UX Skills:** Polished mockups, thoughtful design choices, user flow thinking
-- **Data Skills:** Specific metrics, data-driven decisions, numbers with context
-- **Communication Skills:** Clear, jargon-free writing, empathy in storytelling
-
-### Part 8: The Final Polish
-
-#### Before You Share
-
-- Read it aloud. Awkward sentences jump out when spoken.
-- Print it or export to PDF. See how it looks physically. Does spacing work?
-- Show 2-3 people outside your field. Can they understand it? Do they care?
-- Check for typos 3 times. Typos scream "rushed."
-- Verify all links work (if you embed them).
-- Make sure images render properly when shared via link or PDF.
-
-#### Length Guidelines
-
-- Total document: 8-12 pages when printed (not including appendices)
-- Shorter is better than longer
-- If you need 20+ pages, you're not distilling enough
-
-#### Sharing Strategy
-
-- **For hiring managers:** PDF export (clean, can't accidentally change)
-- **For YC/Startup School:** Shareable Notion link (shows you live and iterate)
-- **For investors:** Both PDF + link (gives optionality)
-
-### Part 9: Customization by Audience
-
-#### For Hiring Managers (Looking for PM Thinking)
-
-**Emphasize:**
-
-- Clear problem identification and user research
-- Specific, measurable success metrics
-- Thoughtful go-to-market strategy
-- Risk awareness (this is a green light they want to see)
-
-#### For YC / Startup School (Looking for Founder Mentality)
-
-**Emphasize:**
-
-- Market timing and why now
-- Speed to learning and iteration
-- Revenue/business model thinking
-- Unfair advantage or unique insight
-
-#### For Investors (Looking for Returns)
-
-**Emphasize:**
-
-- Market size and opportunity
-- Competitive landscape and positioning
-- Unit economics (even rough estimates)
-- Growth roadmap and milestones
-
-Adapt these sections accordingly, but keep the core document clean and tight.
+-   **Enhanced Time Capsule:** A persistent backend to store and retrieve time capsule entries across sessions/devices.
+-   **Branded Visuals:** Replace placeholder images with a unique, consistent illustration style.
+-   **Expanded Content:** Add more virtues, callings, and quiz questions to increase replayability.
+-   **Parental Dashboard:** A section for parents with articles and tips on how to nurture their child's discovered "spark."
+-   **Localization:** Translate content into multiple languages to reach a global audience.
 
 ---
 
-### The Golden Rules
+### The Golden Rules of DreamLens
 
-1.  **Clarity over cleverness.** A simple doc that people understand beats a fancy one they don't.
-2.  **Show, don't tell.** Use mockups, data, and examples. Don't just assert things.
-3.  **Be honest.** Risks and unknowns make you more credible, not less.
-4.  **One idea per section.** Don't try to cram everything into paragraph walls.
-5.  **Whitespace is your friend.** Breathing room makes docs feel high-quality.
-6.  **Your design choices should reflect your product thinking.** Clean doc = clean thinking.
+1.  **Clarity over cleverness.** The user flow is linear and intuitive.
+2.  **Show, don't tell.** We don't just tell a parent their child has courage; we show them a portrait of their child as a courageous Astronaut.
+3.  **Be honest.** The app is a tool for discovery, not a definitive diagnosis of a child's future.
+4.  **One idea per screen.** Each step in the flow has a single, clear purpose.
+5.  **Whitespace is your friend.** The design is clean and breathable, creating a calm and focused experience.
+6.  **The design reflects the thinking.** A clean, thoughtful app for a clean, thoughtful purpose.
