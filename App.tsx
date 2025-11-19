@@ -23,6 +23,24 @@ const App: React.FC = () => {
     const [childsName, setChildsName] = useState<string>('');
     const [viewingCapsuleEntry, setViewingCapsuleEntry] = useState<TimeCapsuleEntry | null>(null);
 
+    // Load Time Capsule from localStorage on mount
+    useEffect(() => {
+        const savedCapsule = localStorage.getItem('dreamLens_timeCapsule');
+        if (savedCapsule) {
+            try {
+                const parsed = JSON.parse(savedCapsule);
+                setTimeCapsule(parsed);
+            } catch (error) {
+                console.error('Failed to parse saved time capsule:', error);
+            }
+        }
+    }, []);
+
+    // Save Time Capsule to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem('dreamLens_timeCapsule', JSON.stringify(timeCapsule));
+    }, [timeCapsule]);
+
 
     const handleStartQuiz = (name: string) => {
         setChildsName(name);
@@ -51,6 +69,10 @@ const App: React.FC = () => {
     const handleDreamGenerated = (dream: { imageUrl: string } & GeneratedCallingDetails) => {
         setGeneratedDream(dream);
         setAppState('action');
+    };
+
+    const handleDreamUpdate = (updatedDream: { imageUrl: string } & GeneratedCallingDetails) => {
+        setGeneratedDream(updatedDream);
     };
     
     const handleSaveToCapsule = () => {
@@ -97,7 +119,7 @@ const App: React.FC = () => {
             case 'generate':
                 return selectedCalling && revealedVirtue && <ImageGeneration calling={selectedCalling} virtue={revealedVirtue} childsName={childsName} onDreamGenerated={handleDreamGenerated} />;
             case 'action':
-                return selectedCalling && generatedDream && <ActionStep calling={selectedCalling} dream={generatedDream} onSave={handleSaveToCapsule} />;
+                return selectedCalling && generatedDream && <ActionStep calling={selectedCalling} dream={generatedDream} onSave={handleSaveToCapsule} onUpdateDream={handleDreamUpdate} />;
             case 'capsule':
                 return <TimeCapsule entries={timeCapsule} onRestart={handleRestart} onViewEntry={setViewingCapsuleEntry} />;
             default:
